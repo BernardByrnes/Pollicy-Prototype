@@ -1,0 +1,154 @@
+.section {
+  position: relative;
+  padding: var(--section-gap) 0;
+  background: var(--charcoal);
+  overflow: hidden;
+}
+
+.texture {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.04;
+}
+.texture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+}
+
+.topLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 4rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7rem;
+  align-items: center;
+}
+
+/* Image column */
+.imageCol {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.mainImage {
+  aspect-ratio: 4/5;
+  overflow: hidden;
+}
+
+.imageTag {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--warm-gray);
+}
+
+/* Story column */
+.storyCol {
+  display: flex;
+  flex-direction: column;
+  gap: 2.2rem;
+}
+
+.issue {
+  color: var(--warm-gray);
+}
+
+.storyTitle {
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 3.5vw, 4.5rem);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  color: var(--ivory);
+}
+
+.storyTitle em {
+  font-style: italic;
+  color: var(--rust);
+}
+
+.pullQuote {
+  font-family: var(--font-serif);
+  font-size: clamp(1rem, 1.5vw, 1.3rem);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.6;
+  color: rgba(246, 241, 232, 0.65);
+  border-left: 2px solid var(--rust);
+  padding-left: 1.5rem;
+  margin-left: 0;
+}
+
+.excerpt {
+  font-size: 0.95rem;
+  font-weight: 300;
+  line-height: 1.8;
+  color: rgba(246, 241, 232, 0.6);
+  max-width: 44ch;
+}
+
+.storyFooter {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(184, 174, 163, 0.2);
+}
+
+.byline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.bylineLabel {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 400;
+  color: var(--warm-gray);
+}
+
+.readBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ivory);
+  border: 1px solid rgba(246, 241, 232, 0.3);
+  padding: 1rem 1.8rem;
+  transition: all 0.3s;
+  align-self: flex-start;
+}
+
+.readBtn:hover {
+  background: var(--rust);
+  border-color: var(--rust);
+}
+
+.arrow {
+  transition: transform 0.3s;
+  display: inline-block;
+}
+.readBtn:hover .arrow { transform: translateX(5px); }
+
+@media (max-width: 1024px) {
+  .grid { grid-template-columns: 1fr; gap: 3rem; }
+  .mainImage { aspect-ratio: 16/9; }
+}

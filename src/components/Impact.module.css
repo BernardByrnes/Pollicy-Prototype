@@ -1,0 +1,192 @@
+.section {
+  padding: var(--section-gap) 0 calc(var(--section-gap) * 1.3);
+  background: var(--ivory);
+}
+
+/* Header */
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 6rem;
+  position: relative;
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 5vw, 6rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: var(--charcoal);
+  position: relative;
+  z-index: 1;
+}
+
+.title em {
+  font-style: italic;
+  color: var(--orange);
+}
+
+.ghostText {
+  position: absolute;
+  top: -0.5rem;
+  right: 0;
+  font-family: var(--font-serif);
+  font-size: clamp(5rem, 12vw, 14rem);
+  font-weight: 400;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--beige);
+  pointer-events: none;
+  line-height: 1;
+  z-index: 0;
+  letter-spacing: -0.04em;
+  user-select: none;
+}
+
+/* Editorial grid — asymmetric, magazine-inspired */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 0;
+  row-gap: 0;
+  /* No background trick — use individual card borders for editorial feel */
+}
+
+.card {
+  background: var(--ivory);
+  padding: 4.5rem 4rem 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  position: relative;
+  border-bottom: 1px solid var(--beige);
+  border-right: 1px solid var(--beige);
+  transition: background 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Right column cards — no right border */
+.card:nth-child(even) {
+  border-right: none;
+}
+
+/* Left column cards — no bottom border on last row */
+.card:nth-last-child(-n+2):nth-child(odd) {
+  border-bottom: none;
+}
+.card:nth-last-child(-n+2):nth-child(even) {
+  border-bottom: none;
+}
+
+.card:hover {
+  background: var(--sand);
+}
+
+/* Decorative left-edge accent on hover */
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2px;
+  height: 0;
+  transition: height 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.card:hover::before {
+  height: 100%;
+}
+
+/* Per-card accent colors applied via inline style in component */
+.card:nth-child(1)::before { background: var(--teal); }
+.card:nth-child(2)::before { background: var(--orange); }
+.card:nth-child(3)::before { background: var(--rust); }
+.card:nth-child(4)::before { background: var(--teal); }
+
+/* Asymmetric vertical stagger — editorial rhythm */
+.card:nth-child(2) { margin-top: 5.5rem; }
+.card:nth-child(4) { margin-top: -2rem; }
+
+/* Large decorative number — ghost, behind content */
+.cardNumber {
+  font-family: var(--font-serif);
+  font-size: clamp(4rem, 6vw, 7rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--beige);
+  user-select: none;
+  margin-bottom: -1.5rem; /* overlap into title for editorial layering */
+  transition: -webkit-text-stroke 0.55s ease;
+}
+
+.card:hover .cardNumber {
+  -webkit-text-stroke-color: var(--beige);
+}
+
+.cardDivider {
+  width: 1.8rem;
+  height: 1px;
+  margin: 0.2rem 0 0.4rem;
+  transition: width 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.card:hover .cardDivider { width: 3.5rem; }
+
+.cardTitle {
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 2.2vw, 2.4rem);
+  font-weight: 400;
+  color: var(--charcoal);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  transition: color 0.4s ease;
+}
+
+.card:hover .cardTitle {
+  color: var(--charcoal);
+}
+
+.cardDesc {
+  font-size: 0.95rem;
+  color: var(--charcoal-soft);
+  font-weight: 300;
+  line-height: 1.85;
+  max-width: 38ch;
+  flex: 1;
+  letter-spacing: 0.01em;
+}
+
+.cardLink {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--warm-gray);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  transition: color 0.45s ease;
+  width: fit-content;
+}
+.cardLink span { transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); display: inline-block; }
+.cardLink:hover { color: var(--charcoal); }
+.cardLink:hover span { transform: translateX(6px); }
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .card {
+    border-right: none;
+    border-bottom: 1px solid var(--beige);
+    padding: 3.5rem var(--gutter);
+  }
+  .card:nth-child(2) { margin-top: 0; }
+  .card:nth-child(4) { margin-top: 0; }
+  .card:last-child { border-bottom: none; }
+  .ghostText { display: none; }
+  .cardNumber { font-size: 3.5rem; margin-bottom: -1rem; }
+}

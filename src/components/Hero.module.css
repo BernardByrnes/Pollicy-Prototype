@@ -1,0 +1,190 @@
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  background: var(--charcoal);
+}
+
+/* Film grain overlay — editorial paper texture, almost invisible */
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+  opacity: 0.028;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n' x='0' y='0'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px 200px;
+}
+
+.imgWrap {
+  position: absolute;
+  inset: -10% 0 -10% 0;
+  will-change: transform;
+}
+
+.heroImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  /* Lightened ~12% — more warmth and humanity from the photography */
+  filter: sepia(6%) saturate(88%) brightness(82%);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  /* Reduced darkness by ~12% — preserve readability, allow warmth through */
+  background: linear-gradient(
+    to right,
+    rgba(26, 25, 24, 0.70) 0%,
+    rgba(26, 25, 24, 0.36) 55%,
+    rgba(26, 25, 24, 0.04) 100%
+  );
+}
+
+/* Abstract accent top-right */
+.geometricAccent {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 42%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.07;
+  overflow: hidden;
+}
+
+.abstractImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  mix-blend-mode: screen;
+}
+
+/* Content */
+.content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: clamp(7rem, 12vw, 10rem) var(--gutter) clamp(4.5rem, 8vw, 7rem);
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2.8rem;
+}
+
+.headline {
+  font-family: var(--font-serif);
+  font-size: clamp(4rem, 10vw, 10rem);
+  font-weight: 400;
+  line-height: 1.03;
+  letter-spacing: -0.03em;
+  color: var(--ivory);
+  max-width: 720px;
+  margin-bottom: 3.2rem; /* more luxurious breathing room */
+}
+
+.headline em {
+  font-style: italic;
+  color: var(--orange);
+}
+
+.subline {
+  font-family: var(--font-sans);
+  font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+  font-weight: 300;
+  line-height: 1.85;
+  color: rgba(246, 241, 232, 0.7);
+  max-width: 44ch;
+  margin-bottom: 3.8rem;
+}
+
+.ctas {
+  display: flex;
+  align-items: center;
+  gap: 2.8rem;
+  flex-wrap: wrap;
+}
+
+/* Editorial CTA — restrained border treatment, no heavy UI block */
+.ctaPrimary {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ivory);
+  border: 1px solid rgba(246, 241, 232, 0.38);
+  padding: 0.95rem 1.9rem;
+  transition: border-color 0.5s ease, color 0.5s ease, background 0.5s ease;
+}
+
+.ctaPrimary:hover {
+  border-color: rgba(246, 241, 232, 0.75);
+  background: rgba(246, 241, 232, 0.06);
+}
+
+.ctaGhost {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 300;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(246, 241, 232, 0.5);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  transition: color 0.5s ease;
+}
+
+.ctaGhost:hover { color: rgba(246, 241, 232, 0.9); }
+
+.arrow {
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  display: inline-block;
+}
+.ctaGhost:hover .arrow { transform: translateX(6px); }
+
+/* Scroll hint */
+.scrollHint {
+  position: absolute;
+  bottom: 2.5rem;
+  right: var(--gutter);
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  color: rgba(246, 241, 232, 0.35);
+}
+
+.scrollLine {
+  display: block;
+  width: 1px;
+  height: 4rem;
+  background: linear-gradient(to bottom, rgba(246,241,232,0.4), transparent);
+  animation: scrollDrop 2.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+}
+
+@keyframes scrollDrop {
+  0%, 100% { transform: scaleY(1); opacity: 0.4; }
+  50% { transform: scaleY(0.3) translateY(24px); opacity: 0.08; }
+}
+
+@media (max-width: 768px) {
+  .headline { font-size: clamp(3rem, 14vw, 5.5rem); line-height: 1.05; }
+  .subline { font-size: 1rem; max-width: 100%; }
+  .geometricAccent { width: 70%; opacity: 0.04; }
+  .scrollHint { display: none; }
+  .ctas { gap: 2rem; }
+}

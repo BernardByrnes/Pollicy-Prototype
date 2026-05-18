@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap');
+
+:root {
+  /* Color System */
+  --ivory: #F6F1E8;
+  --sand: #E8DFD0;
+  --beige: #DDD0BE;
+  --charcoal: #1A1918;
+  --charcoal-soft: #3D3935;
+  --orange: #C96A3D;
+  --teal: #4F7C78;
+  --rust: #A45A43;
+  --warm-gray: #B8AEA3;
+
+  /* Typography */
+  --font-serif: 'DM Serif Display', Georgia, serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+
+  /* Spacing scale */
+  --gutter: clamp(1.5rem, 5vw, 5rem);
+  --section-gap: clamp(5rem, 10vw, 10rem);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--ivory);
+  color: var(--charcoal);
+  font-family: var(--font-sans);
+  font-weight: 300;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  font-feature-settings: 'kern' 1, 'liga' 1;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: var(--ivory); }
+::-webkit-scrollbar-thumb { background: var(--warm-gray); border-radius: 2px; }
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+p {
+  font-family: var(--font-sans);
+  line-height: 1.82;
+  letter-spacing: 0.005em;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* Utility classes */
+.container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+}
+
+.serif { font-family: var(--font-serif); }
+.sans  { font-family: var(--font-sans); }
+
+.text-orange { color: var(--orange); }
+.text-teal   { color: var(--teal); }
+.text-rust   { color: var(--rust); }
+.text-gray   { color: var(--warm-gray); }
+
+.label {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--warm-gray);
+  line-height: 1.5;
+}
+
+.rule {
+  display: inline-block;
+  width: 2.5rem;
+  height: 2px;
+  background: var(--orange);
+  vertical-align: middle;
+  margin-right: 0.75rem;
+}
+
+/* Image treatment — warm editorial */
+.img-editorial {
+  position: relative;
+  overflow: hidden;
+}
+.img-editorial img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: sepia(6%) saturate(88%) brightness(96%);
+  transition: transform 1.1s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              filter 0.8s ease;
+}
+.img-editorial:hover img {
+  transform: scale(1.025);
+  filter: sepia(4%) saturate(92%) brightness(98%);
+}

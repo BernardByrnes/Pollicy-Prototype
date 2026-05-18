@@ -1,0 +1,175 @@
+.section {
+  padding: var(--section-gap) 0;
+  background: var(--ivory);
+}
+
+.labelRow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 4rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 6rem;
+  align-items: center;
+}
+
+/* Image column */
+.imageCol {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.teamImg {
+  width: 100%;
+  aspect-ratio: 4/5;
+  overflow: hidden;
+}
+
+/* City badge — overlapping card */
+.cityBadge {
+  position: absolute;
+  bottom: -2.5rem;
+  right: -2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: var(--sand);
+  padding: 1rem 1.4rem;
+  border: 1px solid var(--beige);
+  z-index: 2;
+  min-width: 220px;
+}
+
+.cityThumb {
+  width: 4rem;
+  height: 4rem;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.cityInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.cityName {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  color: var(--charcoal);
+  line-height: 1;
+}
+
+/* Copy column */
+.copyCol {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  padding-bottom: 2.5rem; /* compensate for city badge overflow */
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 3.5vw, 4.5rem);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  color: var(--charcoal);
+}
+
+.title em {
+  font-style: italic;
+  color: var(--teal);
+}
+
+.body {
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--charcoal-soft);
+  max-width: 42ch;
+}
+
+/* Locations */
+.locations {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.locationRow {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--beige);
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--teal);
+  flex-shrink: 0;
+}
+
+.cityText {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: var(--charcoal-soft);
+  letter-spacing: 0.02em;
+}
+
+.joinLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--charcoal);
+  border-bottom: 1px solid var(--charcoal);
+  padding-bottom: 0.3rem;
+  align-self: flex-start;
+  transition: color 0.3s, border-color 0.3s;
+}
+
+.joinLink:hover {
+  color: var(--teal);
+  border-color: var(--teal);
+}
+
+.arrow {
+  transition: transform 0.3s;
+  display: inline-block;
+}
+.joinLink:hover .arrow { transform: translateX(5px); }
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 5rem;
+  }
+  .cityBadge {
+    right: 1rem;
+    bottom: -1.5rem;
+  }
+  .imageCol { margin-bottom: 2rem; }
+}
+
+@media (max-width: 640px) {
+  .cityBadge {
+    position: static;
+    margin-top: 1.5rem;
+    align-self: flex-end;
+  }
+  .teamImg { aspect-ratio: 16/10; }
+}

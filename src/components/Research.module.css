@@ -1,0 +1,219 @@
+.section {
+  position: relative;
+  padding: var(--section-gap) 0 calc(var(--section-gap) * 1.2);
+  background: var(--sand);
+  overflow: hidden;
+}
+
+.bgAccent {
+  position: absolute;
+  top: -5%;
+  right: -8%;
+  width: 55%;
+  pointer-events: none;
+  opacity: 0.06;
+}
+
+.bgAccent img { width: 100%; }
+
+/* Header */
+.header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sectionTitle {
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 4vw, 4.5rem);
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  color: var(--charcoal);
+  text-align: right;
+}
+
+.sectionTitle em {
+  font-style: italic;
+  color: var(--orange);
+}
+
+/* Filter tags */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 4rem;
+}
+
+.filterBtn {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.5rem 1.2rem;
+  border: 1px solid var(--warm-gray);
+  background: transparent;
+  color: var(--charcoal-soft);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.filterBtn:hover,
+.filterBtn.active {
+  background: var(--charcoal);
+  color: var(--ivory);
+  border-color: var(--charcoal);
+}
+
+/* Featured */
+.featured {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+  margin-bottom: 5rem;
+  padding-bottom: 5rem;
+  border-bottom: 1px solid var(--beige);
+}
+
+.featuredCover {
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  max-width: 480px;
+}
+
+.featuredInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.featuredTag {
+  color: var(--orange) !important;
+}
+
+.featuredTitle {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 3.5vw, 4rem);
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  color: var(--charcoal);
+}
+
+.featuredSub {
+  font-size: 1rem;
+  color: var(--charcoal-soft);
+  font-weight: 300;
+  line-height: 1.7;
+  max-width: 38ch;
+}
+
+.featuredMeta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--beige);
+}
+
+.readMore {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--charcoal);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.3s;
+}
+.readMore:hover { color: var(--orange); }
+
+/* Archive grid */
+.archive {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  margin-bottom: 4rem;
+}
+
+.archiveCard {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  cursor: pointer;
+  transition: transform 0.4s ease;
+}
+
+.archiveCard:hover { transform: translateY(-6px); }
+
+.archiveCover {
+  aspect-ratio: 3/4;
+  overflow: hidden;
+}
+
+.archiveInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.archiveTitle {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  font-weight: 400;
+  line-height: 1.25;
+  color: var(--charcoal);
+}
+
+/* View all */
+.viewAll {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.viewAllLink {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--charcoal);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  border-bottom: 1px solid var(--charcoal);
+  padding-bottom: 0.2rem;
+  transition: color 0.3s;
+}
+.viewAllLink:hover { color: var(--orange); border-color: var(--orange); }
+
+.arrow {
+  transition: transform 0.3s;
+  display: inline-block;
+}
+.viewAllLink:hover .arrow,
+.readMore:hover .arrow { transform: translateX(5px); }
+
+@media (max-width: 1024px) {
+  .featured { grid-template-columns: 1fr; gap: 2.5rem; }
+  .featuredCover { max-width: 100%; }
+  .archive { grid-template-columns: repeat(2, 1fr); }
+  .header { flex-direction: column; align-items: flex-start; }
+  .sectionTitle { text-align: left; }
+}
+
+@media (max-width: 640px) {
+  .archive { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,120 @@
+.section {
+  padding: var(--section-gap) 0;
+  background: var(--ivory);
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 5rem 1fr 1fr;
+  gap: 4rem;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+  align-items: start;
+}
+
+.aside {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding-top: 0.5rem;
+}
+
+.vertLine {
+  width: 1px;
+  height: 6rem;
+  background: linear-gradient(to bottom, var(--warm-gray), transparent);
+}
+
+/* Body */
+.headline {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 4.5vw, 5.5rem);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  color: var(--charcoal);
+  margin-bottom: 2.5rem;
+}
+
+.headline em {
+  font-style: italic;
+  color: var(--teal);
+}
+
+.prose {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  max-width: 44ch;
+  font-size: 1.05rem;
+  color: var(--charcoal-soft);
+  font-weight: 300;
+  margin-bottom: 3.5rem;
+}
+
+.pillars {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.pillar {
+  display: flex;
+  align-items: baseline;
+  gap: 1.5rem;
+  padding: 1rem 0;
+  border-top: 1px solid var(--beige);
+}
+
+.pillar:last-child { border-bottom: 1px solid var(--beige); }
+
+.pillarLabel {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  color: var(--charcoal);
+  min-width: 8rem;
+}
+
+.pillarDesc {
+  font-size: 0.85rem;
+  color: var(--warm-gray);
+  font-weight: 300;
+  letter-spacing: 0.02em;
+}
+
+/* Image column */
+.imgCol {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.imgWrap {
+  width: 100%;
+  aspect-ratio: 4/5;
+  overflow: hidden;
+}
+
+.imgCaption {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+@media (max-width: 1024px) {
+  .container {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+  }
+  .aside { display: none; }
+}
+
+@media (max-width: 640px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+  .imgCol { order: -1; }
+  .imgWrap { aspect-ratio: 16/10; }
+}
