@@ -7,7 +7,7 @@ import styles from './Research.module.css';
 const publications = [
   {
     id: 'pub-1',
-    cover: '/publication cover (1).png',
+    cover: '/publication cover (1).webp',
     tag: 'Data Governance',
     title: 'African Data Governance and Civic Space',
     subtitle: 'Building Rights-Respecting Data Ecosystems',
@@ -16,7 +16,7 @@ const publications = [
   },
   {
     id: 'pub-2',
-    cover: '/publication cover (2).png',
+    cover: '/publication cover (2).webp',
     tag: 'Digital Rights',
     title: 'Feminist Data Futures',
     subtitle: 'Centering Women in African Digital Policy',
@@ -25,7 +25,7 @@ const publications = [
   },
   {
     id: 'pub-3',
-    cover: '/publication cover (3).png',
+    cover: '/publication cover (3).webp',
     tag: 'Technology',
     title: 'AI Governance Frameworks in Africa',
     subtitle: 'Gaps, Opportunities, and Community Responses',
@@ -34,7 +34,7 @@ const publications = [
   },
   {
     id: 'pub-4',
-    cover: '/publication cover (4).png',
+    cover: '/publication cover (4).webp',
     tag: 'Privacy',
     title: 'Data Protection Laws Across Africa',
     subtitle: 'A Comparative Analysis',
@@ -61,7 +61,7 @@ export default function Research() {
     <section ref={ref} className={styles.section} id="research">
       {/* Abstract accent */}
       <div className={styles.bgAccent} aria-hidden="true">
-        <img src="/abstract (2).png" alt="" />
+        <img src="/abstract (2).webp" alt="" />
       </div>
 
       <div className="container">

@@ -24,7 +24,7 @@ export default function Hero() {
       {/* Cinematic background image */}
       <motion.div className={styles.imgWrap} style={{ y: imgY }}>
         <img
-          src="/hero image (1).png"
+          src="/hero image (1).webp"
           alt="Pollicy team collaborating in office"
           className={styles.heroImg}
         />
@@ -33,7 +33,7 @@ export default function Hero() {
 
       {/* Abstract geometric accent */}
       <div className={styles.geometricAccent} aria-hidden="true">
-        <img src="/abstract (1).png" alt="" className={styles.abstractImg} />
+        <img src="/abstract (1).webp" alt="" className={styles.abstractImg} />
       </div>
 
       {/* Content */}

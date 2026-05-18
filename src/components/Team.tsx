@@ -31,7 +31,7 @@ export default function Team() {
             transition={{ duration: 1.2, delay: 0.15 }}
           >
             <div className={`img-editorial ${styles.teamImg}`}>
-              <img src="/our team photo.png" alt="Pollicy team" />
+              <img src="/our team photo.webp" alt="Pollicy team" />
             </div>
 
             {/* City badge */}
@@ -42,7 +42,7 @@ export default function Team() {
               transition={{ duration: 0.9, delay: 0.5 }}
             >
               <div className={`img-editorial ${styles.cityThumb}`}>
-                <img src="/kampala city.png" alt="Kampala cityscape" />
+                <img src="/kampala city.webp" alt="Kampala cityscape" />
               </div>
               <div className={styles.cityInfo}>
                 <span className={styles.cityName}>Kampala</span>

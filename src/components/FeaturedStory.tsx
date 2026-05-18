@@ -12,7 +12,7 @@ export default function FeaturedStory() {
     <section ref={ref} className={styles.section} id="stories">
       {/* Abstract texture */}
       <div className={styles.texture} aria-hidden="true">
-        <img src="/abstract (3).png" alt="" />
+        <img src="/abstract (3).webp" alt="" />
       </div>
 
       <div className="container">
@@ -38,7 +38,7 @@ export default function FeaturedStory() {
               transition={{ duration: 1.2, delay: 0.2 }}
             >
               <div className={`img-editorial ${styles.mainImage}`}>
-                <img src="/hero image (3).png" alt="Featured story visual" />
+                <img src="/hero image (3).webp" alt="Featured story visual" />
               </div>
               <div className={styles.imageTag}>
                 <span className="label">Community Research</span>

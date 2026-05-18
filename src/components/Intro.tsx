@@ -75,7 +75,7 @@ export default function Intro() {
         >
           <div className={`img-editorial ${styles.imgWrap}`}>
             <img
-              src="/hero image (2).png"
+              src="/hero image (2).webp"
               alt="Pollicy team at work"
             />
           </div>
